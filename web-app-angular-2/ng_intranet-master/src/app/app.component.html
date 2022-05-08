@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" [routerLink]="['/']">FLS Intranet</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <!--
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['chat']">Chat</a>
+                        </li>
+                        -->
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['timesheet']">Timesheet</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['profile']">Profile</a>
+                        </li>
+                    </ul>
+                    <!--
+                    <button *ngIf="!authService.isLoggedIn()" class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="authService.signWithGoogle()">Login</button>
+                    <img *ngIf="authService.isLoggedIn()" src="{{ authService.getImageUrl() }}" class="rounded-circle img-thumbnail profile-image" />
+                    <button *ngIf="authService.isLoggedIn()" class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="authService.logout()">Logout</button>
+                    -->
+                    <button *ngIf="oauthService.isLoggedIn()" class="btn btn-danger my-2 my-sm-0" type="submit" (click)="oauthService.logout()">Logout</button>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12"><router-outlet></router-outlet></div>
+    </div>
+</div>

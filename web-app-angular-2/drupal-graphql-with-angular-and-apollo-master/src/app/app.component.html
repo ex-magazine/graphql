@@ -1,0 +1,45 @@
+<h1>
+  Hello Contenta Graphql
+</h1>
+
+<div *ngIf="authenticated;else unauth">
+  <h2>Status : Authenticated</h2>
+  <div>
+    <button *ngIf="authenticated" class="btn btn-default" (click)="logoff()">
+      Logout
+    </button>
+  </div>
+</div>
+<ng-template #unauth>
+  <h2>Status : Anonymous</h2>
+  <div>
+    <button *ngIf="!authenticated" class="btn btn-default" (click)="login()">
+      Login
+    </button>
+  </div>
+</ng-template>
+
+<h2>
+  Clients
+</h2>
+
+<button (click)="runQuery()">query</button>
+
+<app-add-client></app-add-client>
+
+<ul>
+  <li *ngFor="let client of clients | async">
+    <div>
+      Name: {{client.entityLabel}}
+    </div>
+    <div>
+      Email: {{client.email}}
+    </div>
+    <div>
+      Telephone: {{client.telephone}}
+    </div>
+    <div>
+      <button (click)="deleteClient(client.entityId)">Delete me</button>
+    </div>
+  </li>
+</ul>
